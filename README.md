@@ -124,7 +124,7 @@ We would like you to complete the following tasks:
 - Use tools that extend Terraform such as Terragrunt
 
 
-#### Design Decisions
+## Design Decisions
 
 - In my solution, I decided to use terraform workspace because it allows one change between different environments, like development, production, and staging, by using different variable values in the tfvars file for each environment. This lets one create multiple versions of the same infrastructure for different environments with one Terraform configuration, which makes it easier to manage and update infrastructure.
 
@@ -136,12 +136,13 @@ We would like you to complete the following tasks:
 - In the run.sh bash script, the terraform commands to switch workspaces, initialize and apply were added.
 - In the docker-compose.yml file was modified to define the staging service and network.
 
-#### Fit into CICD pipeline
+
+## Fit into CICD pipeline
 - The Terraform code can be automated for deployment and management of the infrastructure using a CI/CD pipeline. This can be done by creating a pipeline in a CI/CD tool, such as Jenkins, that has the following steps:
 
 - After commiting the terraform code to github the version control system, Get the Terraform code from github, Check the Terraform code using the “terraform validate” command. Show the changes to the infrastructure using the “terraform plan” command, which will display the changes to be done. Make the changes to the infrastructure using the “terraform apply” command, which will create or update the infrastructure resources. Save the Terraform state file in a secure backend, such as Amazon S3 or HashiCorp Consul, to ensure state integrity and allow for teamwork.
 
-#### Considerations in real production environment
+## Considerations in real production environment
 - The Vault token used for authentication should be stored safely and changed regularly. 
 - The Docker images used for the containerized services should be checked for vulnerabilities and updated regularly. 
 - The secrets managed by Vault should be encrypted and access should be limited to authorized users only. 
